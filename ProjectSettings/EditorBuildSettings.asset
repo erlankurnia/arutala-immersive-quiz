@@ -4,5 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/ARMode.unity
+    guid: 89cf4df49001db84c887c1a98b11246e
+  - enabled: 1
+    path: Assets/Scenes/TimeConvertion.unity
+    guid: 0e7340ac5c8829e40b654b38ee50b34c
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: c286a7e3f3994c64aa5326310a333bde, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2e2ffc7b618856e46860bd750d69bc18, type: 2}
