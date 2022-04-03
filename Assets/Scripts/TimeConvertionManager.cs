@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -28,21 +29,10 @@ namespace ArutalaQuiz {
 
         private void Convert() {
             string givenTime = givenTimeIF.text;
-            string convertedTime = "";
-
-            string hour = givenTime.Split(':')[0];
-            string minute = givenTime.Split(':')[1];
-            Regex re = new Regex(@"(\d+)([A-P]+)");
-            Match result = re.Match(givenTime.Split(':')[2]);
-            string second = result.Groups[1].ToString();
-            string initial = result.Groups[2].ToString().ToUpper();
-
-            if (initial == "PM") {
-                hour = "" + (byte.Parse(hour) + 12);
-            }
-
-            convertedTime = $"{hour:00}:{minute:00}:{second:00}";
-
+            givenTime = givenTime.Replace("A", " A");
+            givenTime = givenTime.Replace("P", " P");
+            System.DateTime time = System.DateTime.ParseExact(givenTime, "hh:mm:ss tt", CultureInfo.InvariantCulture);
+            string convertedTime = time.ToString("HH:mm:ss");
             resultTxt.text += $"\nGiven Time\t\t\t: {givenTime}\nConverted Time\t: {convertedTime}\n";
         }
     }
